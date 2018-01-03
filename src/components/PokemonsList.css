@@ -1,0 +1,14 @@
+.ReactTable .rt-th, .ReactTable .rt-td {
+  text-align: center;
+}
+
+.pokemon-list__wrapper {
+  margin-top: 20px;
+}
+
+.filters__wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: 60px;
+}

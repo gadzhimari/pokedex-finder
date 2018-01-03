@@ -1,0 +1,11 @@
+.header_fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+.header__title {
+  margin: 0;
+  color: #fff;
+}
