@@ -13,6 +13,7 @@
     "react-table": "*",
     "redux": "*",
     "redux-actions": "*",
+    "redux-devtools-extension": "^2.13.5",
     "redux-form": "*",
     "redux-thunk": "*",
     "reselect": "*"

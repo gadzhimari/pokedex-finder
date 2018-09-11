@@ -1,17 +1,24 @@
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
+
 import reducers from '../reducers';
 
-const devtoolMiddleware = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+let preloadedState;
 
-const configureStore = () => {
-  return createStore(
-    reducers,
-    compose(
-      applyMiddleware(thunk),
-      devtoolMiddleware
-    ),
-  );
+if (typeof window !== 'undefined' && window.PRELOADED_STATE) {
+  preloadedState = JSON.parse(window.PRELOADED_STATE);
+} else {
+  preloadedState = {};
 }
+
+const configureStore = (logger) => {
+  const store = createStore(
+    reducers,
+    preloadedState,
+    composeWithDevTools(applyMiddleware(thunk.withExtraArgument(logger))),
+  );
+  return store;
+};
 
 export default configureStore;
